@@ -65,6 +65,7 @@ import Pulse from './components/designSystemExtension/Pulse';
 import QuickCreate from './components/widget/QuickCreate';
 import RadioButtons from './components/field/RadioButtons';
 import Reference from './components/infra/Reference/Reference';
+import RichText from './components/field/RichText';
 import Region from './components/infra/Region/Region';
 import RootContainer from './components/infra/RootContainer/RootContainer';
 import SemanticLink from './components/field/SemanticLink';
@@ -169,6 +170,7 @@ const pegaSdkComponentMap = {
   'reference': Reference,
   'RadioButtons': RadioButtons,
   'Region': Region,
+  'RichText': RichText,
   'RootContainer': RootContainer,
   'SemanticLink': SemanticLink,
   'SimpleTable': SimpleTable,

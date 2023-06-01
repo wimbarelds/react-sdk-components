@@ -77,6 +77,7 @@ const sdkComponentLocationMap = {
   'reference': 'infra',
   'RadioButtons': 'field',
   'Region': 'infra',
+  'RichText': 'field',
   'RootContainer': 'infra',
   'SemanticLink': 'field',
   'SimpleTable': 'template/SimpleTable',
