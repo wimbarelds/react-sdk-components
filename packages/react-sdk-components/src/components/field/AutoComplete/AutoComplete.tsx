@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import type { BaseProps } from '../../../types/index';
 import Utils from '../../helpers/utils';
 import TextInput from '../TextInput';
 import isDeepEqual from 'fast-deep-equal/react';
@@ -36,7 +37,12 @@ const getDisplayFieldsMetaData = columnList => {
   return metaDataObj;
 };
 
-export default function AutoComplete(props) {
+
+interface AutoCompleteProps extends BaseProps {
+}
+
+
+export default function AutoComplete(props:AutoCompleteProps) {
   const {
     getPConnect,
     label,
@@ -64,7 +70,7 @@ export default function AutoComplete(props) {
 
   const thePConn = getPConnect();
   const actionsApi = thePConn.getActionsApi();
-  const propName = thePConn.getStateProps().value;
+  const propName = thePConn.getStateProps()["value"];
 
   if (!isDeepEqual(datasource, theDatasource)) {
     // inbound datasource is different, so update theDatasource (to trigger useEffect)
@@ -111,7 +117,7 @@ export default function AutoComplete(props) {
 
   useEffect(() => {
     if (listType === 'associated') {
-      setOptions(Utils.getOptionList(props, getPConnect().getDataObject()));
+      setOptions(Utils.getOptionList(props, getPConnect().getDataObject('')));
     }
   }, [theDatasource]);
 

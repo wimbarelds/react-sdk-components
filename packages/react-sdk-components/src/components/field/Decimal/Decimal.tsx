@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CurrencyTextField from '@unicef/material-ui-currency-textfield';
+import type { BaseProps } from '../../../types/index';
+
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 import { getCurrencyCharacters, getCurrencyOptions } from '../Currency/currency-utils';
 import handleEvent from '../../helpers/event-utils';
@@ -7,7 +9,12 @@ import { format } from "../../helpers/formatters";
 
 // Using control from: https://github.com/unicef/material-ui-currency-textfield
 
-export default function Decimal(props) {
+
+interface DecimalProps extends BaseProps {
+}
+
+
+export default function Decimal(props: DecimalProps) {
   const {
     getPConnect,
     label,
@@ -29,7 +36,7 @@ export default function Decimal(props) {
 
   const pConn = getPConnect();
   const actions = pConn.getActionsApi();
-  const propName = pConn.getStateProps().value;
+  const propName = pConn.getStateProps()["value"];
   const helperTextToDisplay = validatemessage || helperText;
 
   const [decValue, setDecimalvalue] = useState();

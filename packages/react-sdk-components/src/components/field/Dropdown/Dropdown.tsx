@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TextField } from '@material-ui/core';
+import type { BaseProps } from '../../../types/index';
 import MenuItem from '@material-ui/core/MenuItem';
 import Utils from '../../helpers/utils';
 import handleEvent from '../../helpers/event-utils';
@@ -10,7 +11,12 @@ interface IOption {
   value: string;
 }
 
-export default function Dropdown(props) {
+
+interface DropdownProps extends BaseProps {
+}
+
+
+export default function Dropdown(props:DropdownProps) {
   const {
     getPConnect,
     label,
@@ -35,12 +41,12 @@ export default function Dropdown(props) {
 
   const thePConn = getPConnect();
   const actionsApi = thePConn.getActionsApi();
-  const propName = thePConn.getStateProps().value;
+  const propName = thePConn.getStateProps()["value"];
   const className = thePConn.getCaseInfo().getClassName();
   const refName = propName?.slice(propName.lastIndexOf('.') + 1);
 
   useEffect(() => {
-    const list = Utils.getOptionList(props, getPConnect().getDataObject());
+    const list = Utils.getOptionList(props, getPConnect().getDataObject(''));
     const optionsList = [...list];
     optionsList.unshift({ key: placeholder, value: placeholder });
     setOptions(optionsList);
@@ -108,6 +114,7 @@ export default function Dropdown(props) {
           {thePConn.getLocalizedValue(
             option.value,
             localePath,
+            // @ts-ignore - getLocaleRuleNameFromKeys is marked as private!
             thePConn.getLocaleRuleNameFromKeys(localeClass, localeContext, localeName)
           )}
         </MenuItem>

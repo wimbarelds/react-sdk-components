@@ -1,17 +1,23 @@
 import React from 'react';
 import { KeyboardDatePicker } from '@material-ui/pickers';
+import type { BaseProps } from '../../../types/index';
 import TextInput from '../TextInput';
 import handleEvent from '../../helpers/event-utils';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 import { format } from '../../helpers/formatters';
 import { dateFormatInfoDefault, getDateFormatInfo} from '../../helpers/date-format-utils';
 
+
+interface DateProps extends BaseProps {
+}
+
+
 // Will return the date string in YYYY-MM-DD format which we'll be POSTing to the server
 function getFormattedDate(date){
   return `${date.$y.toString()}-${(date.$M + 1).toString().padStart(2, '0')}-${date.$D.toString().padStart(2, '0')}`;
 }
 
-export default function Date(props) {
+export default function Date(props: DateProps) {
   const {
     getPConnect,
     label,
@@ -31,7 +37,7 @@ export default function Date(props) {
 
   const pConn = getPConnect();
   const actions = pConn.getActionsApi();
-  const propName = pConn.getStateProps().value;
+  const propName = pConn.getStateProps()["value"];
   const helperTextToDisplay = validatemessage || helperText;
 
   // Start with default dateFormatInfo

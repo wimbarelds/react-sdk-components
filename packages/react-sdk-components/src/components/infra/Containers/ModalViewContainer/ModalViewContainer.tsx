@@ -309,6 +309,7 @@ const ModalViewContainer = props => {
         </DialogContent>
       </Dialog>
       {bShowCancelAlert && (
+        // @ts-ignore - TODO: this use of CancelAlert does NOT pass in the usually required getPConnect
         <CancelAlert
           pConn={cancelPConn}
           showAlert={bShowCancelAlert}

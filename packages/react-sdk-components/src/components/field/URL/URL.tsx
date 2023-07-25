@@ -1,12 +1,19 @@
 import React from 'react';
+import type { BaseProps } from '../../../types/index';
 import { TextField } from '@material-ui/core';
 import TextInput from '../TextInput';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
+
+interface URLComponentProps extends BaseProps {
+}
+
+
+
 // NOTE: that we had to change the name from URL to URLComponent
 //  Otherwise, we were getting all kinds of weird errors when we
 //  referred to URL as a component.
-export default function URLComponent(props) {
+export default function URLComponent(props: URLComponentProps) {
   const {
     label,
     required,

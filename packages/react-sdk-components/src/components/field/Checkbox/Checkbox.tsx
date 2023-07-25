@@ -6,10 +6,16 @@ import {
   FormGroup,
   FormHelperText
 } from '@material-ui/core';
+import type { BaseProps } from '../../../types/index';
 import handleEvent from '../../helpers/event-utils';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function CheckboxComponent(props) {
+
+interface CheckboxComponentProps extends BaseProps {
+}
+
+
+export default function CheckboxComponent(props:CheckboxComponentProps) {
   const {
     getPConnect,
     label,
@@ -30,7 +36,7 @@ export default function CheckboxComponent(props) {
   const theConfigProps = thePConn.getConfigProps();
   const { caption } = theConfigProps;
   const actionsApi = thePConn.getActionsApi();
-  const propName = thePConn.getStateProps().value;
+  const propName = thePConn.getStateProps()["value"];
 
   const [checked, setChecked] = useState(false);
   useEffect(() => {

@@ -1,8 +1,14 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
+import type { BaseProps } from '../../../types/index';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function TextArea(props) {
+
+interface TextAreaProps extends BaseProps {
+}
+
+
+export default function TextArea(props: TextAreaProps) {
   const {
     label,
     required,

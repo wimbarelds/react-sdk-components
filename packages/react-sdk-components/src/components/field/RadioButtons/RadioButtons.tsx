@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import type { BaseProps } from '../../../types/index';
 import {
   Radio,
   RadioGroup,
@@ -12,7 +13,12 @@ import Utils from '../../helpers/utils';
 import handleEvent from '../../helpers/event-utils';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function RadioButtons(props) {
+
+interface RadioButtonsProps extends BaseProps {
+}
+
+
+export default function RadioButtons(props: RadioButtonsProps) {
   const {
     getPConnect,
     label,
@@ -32,7 +38,7 @@ export default function RadioButtons(props) {
   const thePConn = getPConnect();
   const theConfigProps = thePConn.getConfigProps();
   const actionsApi = thePConn.getActionsApi();
-  const propName = thePConn.getStateProps().value;
+  const propName = thePConn.getStateProps()["value"];
   const helperTextToDisplay = validatemessage || helperText;
   const className = thePConn.getCaseInfo().getClassName();
 
@@ -54,7 +60,7 @@ const localePath = localeContext === 'datapage' ? displayName : '';
 
   // theOptions will be an array of JSON objects that are literally key/value pairs.
   //  Ex: [ {key: "Basic", value: "Basic"} ]
-  const theOptions = Utils.getOptionList(theConfigProps, thePConn.getDataObject());
+  const theOptions = Utils.getOptionList(theConfigProps, thePConn.getDataObject(''));
 
   useEffect(() => {
     // This update theSelectedButton which will update the UI to show the selected button correctly
@@ -95,6 +101,7 @@ const localePath = localeContext === 'datapage' ? displayName : '';
                 thePConn.getLocalizedValue(
                   theOption.value,
                   localePath,
+                  // @ts-ignore - getLocaleRuleNameFromKeys marked as private!
                   thePConn.getLocaleRuleNameFromKeys(localeClass, localeContext, localeName)
                 )
               }

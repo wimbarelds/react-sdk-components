@@ -1,10 +1,16 @@
 import React from 'react';
 import { TextField, InputAdornment } from '@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import type { BaseProps } from '../../../types/index';
 import TextInput from '../TextInput';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function Email(props) {
+
+interface EmailProps extends BaseProps {
+}
+
+
+export default function Email(props: EmailProps) {
   const {
     label,
     required,

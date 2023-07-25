@@ -1,9 +1,15 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
+import type { BaseProps } from '../../../types/index';
 import TextInput from '../TextInput';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function Integer(props) {
+
+interface IntegerProps extends BaseProps {
+}
+
+
+export default function Integer(props: IntegerProps) {
   const {
     label,
     required,

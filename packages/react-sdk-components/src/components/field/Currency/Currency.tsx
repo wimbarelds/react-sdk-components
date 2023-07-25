@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { TextField } from "@material-ui/core";
 import CurrencyTextField from '@unicef/material-ui-currency-textfield';
+import type { BaseProps } from '../../../types/index';
 import handleEvent from '../../helpers/event-utils';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 import { format } from "../../helpers/formatters";
@@ -8,7 +9,12 @@ import { getCurrencyCharacters, getCurrencyOptions } from './currency-utils';
 
 // Using control from: https://github.com/unicef/material-ui-currency-textfield
 
-export default function Currency(props) {
+
+interface CurrencyProps extends BaseProps {
+}
+
+
+export default function Currency(props: CurrencyProps) {
   const {
     getPConnect,
     label,
@@ -28,7 +34,7 @@ export default function Currency(props) {
 
   const pConn = getPConnect();
   const actions = pConn.getActionsApi();
-  const propName = pConn.getStateProps().value;
+  const propName = pConn.getStateProps()["value"];
   const helperTextToDisplay = validatemessage || helperText;
 
   // console.log(`Currency: label: ${label} value: ${value}`);

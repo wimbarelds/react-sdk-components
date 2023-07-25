@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { TextField } from '@material-ui/core';
+import type { BaseProps } from '../../../types/index';
+
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 import handleEvent from '../../helpers/event-utils';
 
-export default function TextInput(props) {
+
+interface TextInputProps extends BaseProps {
+}
+
+
+export default function TextInput(props: TextInputProps) {
   const {
     getPConnect,
     label,
@@ -23,7 +30,7 @@ export default function TextInput(props) {
 
   const pConn = getPConnect();
   const actions = pConn.getActionsApi();
-  const propName = pConn.getStateProps().value;
+  const propName = pConn.getStateProps()["value"];
 
   const helperTextToDisplay = validatemessage || helperText;
 

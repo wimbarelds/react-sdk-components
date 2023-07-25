@@ -1,12 +1,18 @@
 import React from 'react';
 import { KeyboardDateTimePicker } from '@material-ui/pickers';
+import type { BaseProps } from '../../../types/index';
 import TextInput from '../TextInput';
 import handleEvent from '../../helpers/event-utils';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 import { format } from '../../helpers/formatters';
 import { dateFormatInfoDefault, getDateFormatInfo} from '../../helpers/date-format-utils';
 
-export default function DateTime(props) {
+
+interface DateProps extends BaseProps {
+}
+
+
+export default function DateTime(props:DateProps) {
   const {
     getPConnect,
     label,
@@ -25,7 +31,7 @@ export default function DateTime(props) {
 
   const pConn = getPConnect();
   const actions = pConn.getActionsApi();
-  const propName = pConn.getStateProps().value;
+  const propName = pConn.getStateProps()["value"];
   const helperTextToDisplay = validatemessage || helperText;
 
   // Start with default dateFormatInfo

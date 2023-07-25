@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Grid, IconButton, Snackbar } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import type { BaseProps } from '../../../types/index';
+
 
 import './CancelAlert.css';
 
@@ -8,7 +10,11 @@ import './CancelAlert.css';
 declare const PCore: any;
 
 
-const CancelAlert = props => {
+interface CancelAlertProps extends BaseProps {
+}
+
+
+const CancelAlert = (props: CancelAlertProps) => {
   const { pConn, updateAlertState } = props;
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');

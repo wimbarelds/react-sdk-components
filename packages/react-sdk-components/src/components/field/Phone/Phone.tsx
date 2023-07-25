@@ -1,8 +1,14 @@
 import React from 'react';
+import type { BaseProps } from '../../../types/index';
 import MuiPhoneNumber from 'material-ui-phone-number';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function Phone(props) {
+
+interface PhoneProps extends BaseProps {
+}
+
+
+export default function Phone(props: PhoneProps) {
   const {
     label,
     required,

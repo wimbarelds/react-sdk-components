@@ -1,11 +1,17 @@
 import React from 'react';
+import type { BaseProps } from '../../../types/index';
 import { KeyboardTimePicker } from '@material-ui/pickers';
 import TextInput from '../TextInput';
 import dayjs from 'dayjs';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import FieldValueList from '../../designSystemExtension/FieldValueList';
 
-export default function Time(props) {
+
+interface TimeProps extends BaseProps {
+}
+
+
+export default function Time(props: TimeProps) {
   const {
     label,
     required,
