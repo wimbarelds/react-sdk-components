@@ -5,9 +5,6 @@ import { Grid, Link } from '@material-ui/core';
 import React from 'react';
 import DashboardFilter from './DashboardFilter';
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 5 errors)
-declare const PCore: any;
-
 
 export const createFilter = (value, fieldId, comparator = 'EQ') => {
   return {
@@ -76,8 +73,8 @@ export const createFilterComponent = (getPConnect, filterMeta, index) => {
   if (datasource && datasource.fields) {
     datasource.fields.key = datasource.fields.value;
   }
-  if (filterMeta.config.listType === 'associated' && propInfo && propInfo.datasource) {
-    filterMeta.config.datasource = propInfo.datasource.records;
+  if (filterMeta.config.listType === 'associated' && propInfo && propInfo[datasource]) {
+    filterMeta.config.datasource = propInfo[datasource].records;
   }
   filterMeta.config.value = `@P ${filterProp}`;
   filterMeta.type = filterMeta.config.displayAs || type;

@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
 import { getContext, readContextResponse } from './utils';
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 1 error)
-declare const PCore: any;
-
 export default function useInit(props) {
   const {
     referenceList,

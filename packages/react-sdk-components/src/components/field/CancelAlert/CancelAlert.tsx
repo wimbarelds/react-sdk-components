@@ -4,9 +4,6 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import './CancelAlert.css';
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 2 errors)
-declare const PCore: any;
-
 
 const CancelAlert = props => {
   const { pConn, updateAlertState } = props;

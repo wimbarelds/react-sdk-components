@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 1 error)
-declare const PCore: any;
-
 
 function ErrorBoundary(props) {
   const errorMsg = PCore.getErrorHandler().getGenericFailedMessage();

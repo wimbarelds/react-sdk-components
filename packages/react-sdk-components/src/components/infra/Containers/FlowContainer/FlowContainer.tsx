@@ -18,9 +18,6 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { addContainerItem, getToDoAssignments, showBanner } from './helpers';
 import { isEmptyObject } from '../../../helpers/common-utils';
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 3 errors)
-declare const PCore: any;
-
 
 //
 // WARNING:  It is not expected that this file should be modified.  It is part of infrastructure code that works with

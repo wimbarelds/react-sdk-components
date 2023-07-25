@@ -29,9 +29,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 1 error)
-declare const PCore: any;
-
 
 export default function AppShell(props) {
   const {
@@ -61,7 +58,7 @@ export default function AppShell(props) {
   const classes = useStyles();
   const actionsAPI = pConn.getActionsApi();
   const localeReference = pConn.getValue('.pyLocaleReference');
-  const [imageBlobUrl, setImageBlobUrl] = useState(null);
+  const [imageBlobUrl, setImageBlobUrl] = useState("");
   // useState for appName and mapChildren - note these are ONLY updated once (on component mount!)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   const [appName, setAppName] = useState('');

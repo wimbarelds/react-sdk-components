@@ -18,9 +18,6 @@ import { getSdkComponentMap } from '../../../bridge/helpers/sdk_component_map';
 import localSdkComponentMap from '../../../../sdk-local-component-map';
 
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 2 errors)
-declare const PCore: any;
-
 declare const myLoadMashup: any;
 
 const useStyles = makeStyles((theme) => ({

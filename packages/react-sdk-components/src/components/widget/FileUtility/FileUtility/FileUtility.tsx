@@ -11,9 +11,6 @@ import { Button } from '@material-ui/core';
 import { validateMaxSize } from '../../../helpers/attachmentHelpers';
 import { CircularProgress } from "@material-ui/core";
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 5 errors)
-declare const PCore: any;
-
 
 export default function FileUtility(props) {
   const { getPConnect } = props;
@@ -230,14 +227,14 @@ export default function FileUtility(props) {
 
   useEffect(() => {
     PCore.getPubSubUtils().subscribe(
-      PCore.getEvents().getCaseEvent().CASE_ATTACHMENTS_UPDATED_FROM_CASEVIEW,
+      PCore.getEvents().getCaseEvent()["CASE_ATTACHMENTS_UPDATED_FROM_CASEVIEW"],
       getAttachments,
       "caseAttachmentsUpdateFromCaseview"
     );
 
     return () => {
       PCore.getPubSubUtils().unsubscribe(
-        PCore.getEvents().getCaseEvent().CASE_ATTACHMENTS_UPDATED_FROM_CASEVIEW,
+        PCore.getEvents().getCaseEvent()["CASE_ATTACHMENTS_UPDATED_FROM_CASEVIEW"],
         "caseAttachmentsUpdateFromCaseview"
       );
     };
@@ -464,7 +461,9 @@ export default function FileUtility(props) {
         });
         getAttachments();
       })
-      .catch(setProgress(false));
+      .catch(() => {
+        setProgress(false);
+      })
     }
   }
 

@@ -1,7 +1,5 @@
 import getDefaultViewMeta from './DefaultViewMeta';
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 5 errors)
-declare const PCore: any;
 
 const USER_REFERENCE = 'UserReference';
 const PAGE = '!P!';
@@ -83,7 +81,9 @@ export function getConfigEmbeddedFieldsMeta(configFields, classID) {
         value = value.substring(0, value.indexOf('[')) + value.substring(value.indexOf(']') + 1);
       }
       const meta = PCore.getMetadataUtils().getEmbeddedPropertyMetadata(value, classID);
-      meta.fieldID = field;
+      if ( meta !== null) {
+        meta.fieldID = field;
+      }
       configEmbeddedFieldsMeta.push(meta);
     }
   });

@@ -11,9 +11,6 @@ import CancelAlert from '../../../field/CancelAlert';
 import { getBanners } from '../../../helpers/case-utils';
 import { isEmptyObject } from '../../../helpers/common-utils';
 
-// Remove this and use "real" PCore type once .d.ts is fixed (currently shows 8 errors)
-declare const PCore: any;
-
 
 function buildName(pConnect, name = '') {
   const context = pConnect.getContextName();
@@ -89,7 +86,7 @@ const ModalViewContainer = props => {
   const [title, setTitle] = useState('');
   const [arNewChildrenAsReact, setArNewChildrenAsReact] = useState<Array<any>>([]);
   const [itemKey, setItemKey] = useState('');
-  const [cancelPConn, setCancelPConn] = useState(null);
+  const [cancelPConn, setCancelPConn] = useState({});
 
   const localizedVal = PCore.getLocaleUtils().getLocaleValue;
   const localeCategory = 'Data Object';
@@ -104,7 +101,10 @@ const ModalViewContainer = props => {
     */
     if (latestItem && isModalAction) {
       const configObject = getConfigObject(latestItem, pConn);
-      setCancelPConn(configObject.getPConnect());
+      if (configObject !== null) {
+        const thePConnect = configObject.getPConnect();
+        setCancelPConn(thePConnect);
+      }
       setShowCancelAlert(true);
     }
   }
