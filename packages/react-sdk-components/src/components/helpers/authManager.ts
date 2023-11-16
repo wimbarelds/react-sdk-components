@@ -6,7 +6,7 @@
 
 import { isEmptyObject } from './common-utils';
 import { getSdkConfig, SdkConfigAccess } from './config_access';
-import PegaAuth from './auth';
+import PegaAuth from '@pega/auth';
 
 declare const window: any;
 declare const PCore: any;
