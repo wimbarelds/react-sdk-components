@@ -25,7 +25,7 @@ module.exports = (env, argv) => {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: './node_modules/@pega/auth/src/oauth-client/authDone.html',
+          from: './packages/react-sdk-components/src/authDone.html',
           to: './auth.html'
         },
         {
@@ -149,10 +149,6 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
-        {
-          test: /authDone.html$/,
-          use: 'raw-loader',
-        },
         {
           test: /\.tsx?$/,
           use: 'ts-loader',
