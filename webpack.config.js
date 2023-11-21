@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
           to: './auth.html'
         },
         {
-          from: './node_modules/@pega/auth/src/oauth-client/authDone.js',
+          from: './node_modules/@pega/auth/lib/oauth-client/authDone.js',
           to: './'
         },
         {
