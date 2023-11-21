@@ -1,5 +1,5 @@
 import React from 'react';
-import { getHomeUrl, authIsMainRedirect, authRedirectCallback } from "../../helpers/authManager";
+import { getHomeUrl, authIsMainRedirect, authRedirectCallback } from '@pega/auth';
 
 function getEmbedOriginFromState(state) {
   let embedOrigin = null;

@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
 
   pluginsToAdd.push(
     new HtmlWebpackPlugin({
-      template: './packages/react-sdk-components/src/auth.html',
+      template: './node_modules/@pega/auth/lib/oauth-client/authDone.html',
       filename: 'auth.html'
     })
   );
@@ -39,7 +39,7 @@ module.exports = (env, argv) => {
           to: './'
         },
         {
-          from: './packages/react-sdk-components/src/components/helpers/auth.js',
+          from: './node_modules/@pega/auth/lib/oauth-client/auth.js',
           to: './'
         },
         {

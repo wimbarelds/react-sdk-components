@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { useLocation, useHistory } from 'react-router-dom';
+import { loginIfNecessary, getAvailablePortals, SdkConfigAccess } from '@pega/auth';
+
 import StoreContext from '../../bridge/Context/StoreContext';
 import createPConnectComponent from '../../bridge/react_pconnect';
-import { SdkConfigAccess } from '../../components/helpers/config_access';
 import { compareSdkPCoreVersions } from '../../components/helpers/versionHelpers';
-import { loginIfNecessary, getAvailablePortals } from '../../components/helpers/authManager';
 import InvalidPortal from './InvalidPortal';
 
 import { getSdkComponentMap } from '../../bridge/helpers/sdk_component_map';

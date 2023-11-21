@@ -30,9 +30,9 @@ import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { logout } from '@pega/auth';
 
 import { useNavBar } from '../../helpers/reactContextHelpers';
-import { logout } from '../../helpers/authManager';
 
 import type { PConnProps } from '../../../types/PConnProps';
 
